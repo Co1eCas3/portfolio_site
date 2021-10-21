@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock:wght@700&display=swap');
+
+:root {
+	--header-height: 5.5rem;
+	--main-height: calc(100vh - var(--header-height));
+	--bg-main: #0B1119;
+	--bg-dark: rgb(6, 12, 17);
+	--bg-darken: rgba(0, 0, 0, .3);
+	--card-blue: #54747d;
+	--card-red: #7a6452;
+	--card-green: #436551;
+  --accnt-gold: #A57609;
+	--txt-main: #CFD7FC;
+	--txt-fade: rgba(207, 215, 252, .35);
+	--font-main: Arial, Helvetica, sans-serif;
+	--font-accent: 'Overlock', cursive;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	width: 100vw;
+	height: 100%;
+	overflow-y: auto;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: var(--bg-main);
+	font-family: var(--font-main);
+}
+
+/* #svelte {
+	position: relative;
+	max-width: 90rem;
+	margin: 0 auto;
+} */
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: var(--txt-fade);
+	transition: color .15s linear 0s;
+}
+
+a:hover {
+	color: var(--txt-main);
+}
