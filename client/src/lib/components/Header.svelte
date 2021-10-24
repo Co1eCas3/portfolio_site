@@ -19,7 +19,13 @@
 </script>
 
 <header bind:this={cont} class:loaded>
-	<div id="logo" />
+	<div id="logo" class="in-center">
+		<a href="/">
+			<div class="in-center">
+				<span>R</span>C
+			</div>
+		</a>
+	</div>
 	<Nav {mobileSized} />
 </header>
 
@@ -42,5 +48,29 @@
 
 	.loaded {
 		top: 0;
+	}
+
+	#logo {
+		width: calc(var(--header-height) + 1.5em);
+		aspect-ratio: 1;
+		font-size: 3rem;
+		font-family: var(--font-accent);
+		color: var(--txt-main);
+	}
+
+	#logo div {
+		width: 6rem;
+		height: 6rem;
+		letter-spacing: 0;
+		flex-flow: row;
+		border: 2px solid var(--card-blue);
+		border-radius: 50%;
+	}
+
+	#logo span {
+		position: relative;
+		left: 6px;
+		color: var(--accnt-gold);
+		transform: scale(1.2) rotateY(0.5turn);
 	}
 </style>

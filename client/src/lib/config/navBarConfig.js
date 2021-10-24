@@ -27,25 +27,7 @@ export const navBarConfig = [
   {
     href: '/works',
     title: 'WORKS',
-    order: 3,
-    expandOnMobile: true,
-    next: [
-      {
-        href: '/projects',
-        title: 'PROJECTS',
-        order: 1
-      },
-      {
-        href: '/codewars',
-        title: 'CODEWARS KATAS',
-        order: 2
-      },
-      {
-        href: '/music',
-        title: 'MUSIC',
-        order: 3
-      }
-    ]
+    order: 3
   },
   {
     href: '/contact',

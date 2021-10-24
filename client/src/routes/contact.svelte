@@ -40,6 +40,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Ryan Cederoth | Contact</title>
+</svelte:head>
+
 <section class="in-center">
 	{#if !submittedSuccessfully}
 		<h1>Let's talk!</h1>
