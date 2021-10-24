@@ -1,4 +1,5 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
 	import { createForm } from 'svelte-forms-lib';
 	import * as yup from 'yup';
 
@@ -17,7 +18,7 @@
 			fromCompany: yup.string(),
 			contactMessage: yup.string().required()
 		}),
-		onSubmit: async (values, errors) => {
+		onSubmit: async (values, form, errors) => {
 			const res = await fetch(
 				'https://314pgp2t9a.execute-api.us-east-1.amazonaws.com/testing/contact',
 				{
@@ -29,13 +30,14 @@
 					body: JSON.stringify(values)
 				}
 			);
-			const data = await res.json();
 
-			if (!res.ok) {
-				errors = { ...errors, form: data.message };
-			} else {
-				submittedSuccessfully = true;
-			}
+			submittedSuccessfully = true;
+			// if (!res.ok) {
+			// 	console.log('not working: ', data);
+			// 	errors = { ...errors, form: data.message };
+			// } else {
+			// 	console.log('working');
+			// }
 		}
 	});
 </script>
@@ -46,9 +48,9 @@
 
 <section class="in-center">
 	{#if !submittedSuccessfully}
-		<h1>Let's talk!</h1>
+		<h1 transition:fade>Let's talk!</h1>
 
-		<form class="in-center" on:submit={handleSubmit}>
+		<form class="in-center" on:submit={handleSubmit} transition:fade={{ duration: 200 }}>
 			<div>
 				<input
 					type="text"
@@ -72,7 +74,7 @@
 					on:blur={handleChange}
 				/>
 				{#if $errors.fromEmail}
-					<small>Doesn't look like I'll be able to resond to that address...</small>
+					<small>Doesn't look like I'll be able to respond to that address...</small>
 				{/if}
 			</div>
 			<div>
@@ -106,7 +108,7 @@
 			{/if}
 		</form>
 	{:else}
-		<div class="success-message in-center">
+		<div class="success-message in-center" transition:fly={{ y: 300, delay: 250 }}>
 			<h1>Thanks for messaging me!</h1>
 			<h3>I'll be in touch ASAP!</h3>
 		</div>
@@ -169,6 +171,7 @@
 		border-radius: 0;
 		background: var(--card-red);
 		font-size: 1.2em;
+		cursor: pointer;
 	}
 
 	small {
