@@ -9,7 +9,7 @@
 	onMount(() => setTimeout(() => (mounted = true), 500));
 </script>
 
-<div>
+<div class="in-center">
 	{#if mounted}
 		{#each myName as namePart, i}
 			<p transition:blur={{ duration: 1000, delay: 500 }}>
@@ -34,10 +34,6 @@
 		letter-spacing: 0.12em;
 		font-family: var(--font-accent);
 		text-shadow: 2px 4px 6px var(--accnt-gold);
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		place-items: center;
 		transition: letter-spacing 0.8s ease-out;
 	}
 

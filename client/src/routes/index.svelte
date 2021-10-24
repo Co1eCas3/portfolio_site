@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Homepage for Ryan C</title>
+	<title>Ryan Cederoth | Home Page</title>
 </svelte:head>
 
 <svelte:window bind:scrollY />
@@ -26,7 +26,6 @@
 	section {
 		width: 100%;
 		max-width: 90rem;
-		margin-top: var(--header-height);
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;

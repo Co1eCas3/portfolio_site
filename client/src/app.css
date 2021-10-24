@@ -54,3 +54,19 @@ a {
 a:hover {
 	color: var(--txt-main);
 }
+
+.in-center {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	place-items: center;
+}
+
+@keyframes loader-spin {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360);
+	}
+}

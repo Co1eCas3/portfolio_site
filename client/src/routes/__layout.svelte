@@ -3,7 +3,7 @@
 	import Header from '$lib/components/Header.svelte';
 </script>
 
-<main>
+<main class="in-center">
 	<Header />
 
 	<slot />
@@ -11,8 +11,6 @@
 
 <style>
 	main {
-		display: flex;
-		flex-direction: column;
-		place-items: center;
+		padding-top: var(--header-height);
 	}
 </style>

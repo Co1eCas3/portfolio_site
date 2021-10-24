@@ -18,12 +18,16 @@
 </script>
 
 <li
+	class="in-center"
 	bind:clientWidth={linkWidth}
 	transition:fly={{ x: linkWidth, duration: 150, delay: order * 100, easing: sineOut }}
 	on:mouseenter={expandSubMenu}
 	on:mouseleave={expandSubMenu}
 >
-	<a {href} class:isCurrent={$page.path === href || (href !== '/' && $page.path.startsWith(href))}
+	<a
+		{href}
+		class="in-center"
+		class:isCurrent={$page.path === href || (href !== '/' && $page.path.startsWith(href))}
 		>{title}</a
 	>
 	{#if next && expandNext}
@@ -43,17 +47,11 @@
 		/* background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, var(--bg-darken) 15%); */
 		background: var(--bg-dark);
 		font-size: 1.7rem;
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
 	}
 
 	a {
 		height: var(--header-height);
 		border-bottom: 1px solid var(--txt-fade);
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
 	}
 
 	.isCurrent {

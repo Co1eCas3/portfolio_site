@@ -76,11 +76,11 @@
 	on:mousewheel={() => clearTimeout(scrollTimeout)}
 />
 
-<section>
-	<div class="track" bind:this={cont}>
+<section class="in-center">
+	<div class="track in-center" bind:this={cont}>
 		<div class="spacer init" />
 		{#each statementNodes as node, i}
-			<section class="node" id={`node-${i}`}>
+			<section class="node in-center" id={`node-${i}`}>
 				<div class="dot" />
 				<p class="caption" data-caption={node}>{node}</p>
 			</section>
@@ -88,7 +88,7 @@
 		{/each}
 	</div>
 </section>
-<div class="hook" bind:this={hook}>
+<div class="hook in-center" bind:this={hook}>
 	<div class="hook-cont">
 		<p class="line1">If you wan'na be a rockstar</p>
 		<p class="line2">then be a rockstar</p>
@@ -101,18 +101,12 @@
 	section {
 		width: 100%;
 		background: var(--bg-main);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 	}
 
 	.track {
 		width: 60px;
 		background: var(--bg-main);
 		color: var(--txt-main);
-		display: flex;
-		flex-flow: column;
-		place-items: center;
 	}
 
 	.spacer {
@@ -130,10 +124,6 @@
 		width: 100px;
 		height: 100px;
 		font-size: 1.2em;
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		place-items: center;
 		perspective: 200px;
 		transform-style: preserve-3d;
 		transform-origin: 50% 0;
@@ -176,10 +166,6 @@
 		height: calc(100vh - var(--header-height));
 		font-size: 1.5em;
 		color: var(--txt-main);
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		align-items: center;
 	}
 
 	.hook-cont {
@@ -189,6 +175,7 @@
 		padding: 1em;
 		width: max-content;
 		background: black;
+		font-family: var(--font-accent);
 		transform: translateZ(300px);
 	}
 

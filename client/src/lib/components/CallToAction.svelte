@@ -23,8 +23,6 @@
 			el: null
 		}
 	];
-
-	// $: console.log(cardData);
 	onMount(() => {
 		cardData = cardData.map((card, _, cards) => {
 			const cb = (entries) => flipCard.call(card, entries[0], cards);
@@ -32,11 +30,9 @@
 			card.io.observe(card.el);
 			return card;
 		});
-		console.log(cardData);
 	});
 
 	function flipCard(entry, cards) {
-		console.log(entry.intersectionRatio);
 		if (entry.intersectionRatio >= 0.9) {
 			this.applyShowClass = true;
 			cardData = cards;
@@ -44,28 +40,12 @@
 	}
 </script>
 
-<section bind:this={cont}>
+<section class="in-center" bind:this={cont}>
 	{#each cardData as card}
-		<div bind:this={card.el} class="card" class:show={card.applyShowClass}>
-			<div class="border"><a href={card.href}>{card.display}</a></div>
+		<div bind:this={card.el} class="card in-center" class:show={card.applyShowClass}>
+			<div class="border in-center"><a href={card.href}>{card.display}</a></div>
 		</div>
 	{/each}
-
-	<!-- <div class="card">
-		<div class="border">
-			<a href="/resume/view">VIEW RESUME</a>
-		</div>
-	</div>
-	<div class="card">
-		<div class="border">
-			<a href="/works">WORKS GALLERY</a>
-		</div>
-	</div>
-	<div class="card">
-		<div class="border">
-			<a href="/contact">CONTACT ME</a>
-		</div>
-	</div> -->
 </section>
 
 <style>
@@ -74,10 +54,6 @@
 		max-width: 90rem;
 		min-height: var(--main-height);
 		background: var(--bg-main);
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		place-items: center;
 		align-content: center;
 		transform-style: preserve-3d;
 	}
@@ -90,10 +66,6 @@
 		margin: 1rem;
 		color: var(--txt-main);
 		text-align: center;
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
-		place-items: center;
 		perspective: 150px;
 		transform-style: preserve-3d;
 		transform-origin: bottom;
@@ -132,9 +104,6 @@
 		width: 80%;
 		height: 75%;
 		border: 2px solid var(--txt-fade);
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
 		transform: translateZ(20px);
 		perspective: 150px;
 		transform-style: preserve-3d;

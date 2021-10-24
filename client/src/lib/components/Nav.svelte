@@ -15,6 +15,7 @@
 	{#if mobileSized}
 		<div
 			id="hamburger-cont"
+			class="in-center"
 			class:isMobileAndOpen
 			style={`transition-delay: ${hamburgerTransDelay}s`}
 			on:click={() => (isMobileAndOpen = !isMobileAndOpen)}
@@ -39,9 +40,6 @@
 	#hamburger-cont {
 		width: var(--header-height);
 		height: 100%;
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
 		transition-property: margin-left;
 		transition-duration: 0.3s;
 		transition-timing-function: ease-out;

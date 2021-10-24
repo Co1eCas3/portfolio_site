@@ -7,18 +7,18 @@ export const navBarConfig = [
     order: 1
   },
   {
-    href: '/resume',
+    href: '/resume/view',
     title: 'RESUME',
     order: 2,
     expandOnMobile: false,
     next: [
       {
-        href: '/view',
+        href: '',
         title: 'VIEW',
         order: 1
       },
       {
-        href: '/download',
+        href: '?download=true',
         title: 'DOWNLOAD',
         order: 2
       }
