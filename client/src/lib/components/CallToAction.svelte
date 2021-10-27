@@ -53,7 +53,7 @@
 		width: 100%;
 		max-width: 90rem;
 		min-height: var(--main-height);
-		background: var(--bg-main);
+		background: linear-gradient(0deg, var(--bg-main) 85%, rgba(0, 0, 0, 0) 100%);
 		align-content: center;
 		transform-style: preserve-3d;
 	}

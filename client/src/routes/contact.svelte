@@ -156,7 +156,8 @@
 		color: var(--txt-main);
 	}
 
-	input {
+	input,
+	textarea {
 		font-family: monospace;
 	}
 
@@ -172,6 +173,10 @@
 		background: var(--card-red);
 		font-size: 1.2em;
 		cursor: pointer;
+	}
+
+	button[disabled] {
+		cursor: not-allowed;
 	}
 
 	small {

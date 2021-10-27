@@ -9,7 +9,9 @@
 	let scrollTimeout,
 		nextNode = 0;
 
-	let hook, ro;
+	let hook,
+		ro,
+		hookInView = false;
 
 	onMount(() => {
 		mainCont = document.querySelector('#svelte');
@@ -59,13 +61,27 @@
 	}
 
 	function createHookIO() {
-		ro = new IntersectionObserver((entries) =>
-			entries[0].isIntersecting
-				? (entries[0].target.style.opacity = '1')
-				: (entries[0].target.style.opacity = '0')
-		);
+		ro = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				entries[0].target.style.opacity = '1';
+				hookInView = true;
+			} else {
+				entries[0].target.style.opacity = '0';
+				hookInView = false;
+			}
+
+			console.log(hookInView);
+		});
 
 		ro.observe(hook);
+	}
+
+	function zoomHook(e) {
+		const { height: contHeight, bottom: contBottom } = hook.getBoundingClientRect();
+		const percentThru = contBottom / (winHeight + contHeight);
+
+		const hookEl = hook.querySelector('.hook-cont');
+		hookEl.style.transform = `scale(${(1 - percentThru) * 0.5 + 0.8})`;
 	}
 </script>
 
@@ -73,6 +89,7 @@
 	bind:innerHeight={winHeight}
 	bind:scrollY={scrollPos}
 	on:scroll={scrollHandler}
+	on:scroll={!hookInView ? null : zoomHook}
 	on:mousewheel={() => clearTimeout(scrollTimeout)}
 />
 
@@ -100,12 +117,11 @@
 <style>
 	section {
 		width: 100%;
-		background: var(--bg-main);
+		background: linear-gradient(180deg, var(--bg-main) 93%, rgba(0, 0, 0, 0) 100%);
 	}
 
 	.track {
 		width: 60px;
-		background: var(--bg-main);
 		color: var(--txt-main);
 	}
 
